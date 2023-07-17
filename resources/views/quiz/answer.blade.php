@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/index.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet" type="text/css">
+    <meta name=”robots” content=”noindex” />
     <title>解答</title>
 </head>
 <body>
