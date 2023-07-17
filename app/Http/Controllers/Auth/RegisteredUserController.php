@@ -51,8 +51,8 @@ class RegisteredUserController extends Controller
 
         $user = User::create($attr);
         $user->roles()->attach(2);
-        return $user;
+        // return $user;
 
-        // return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME);
     }
 }
