@@ -14,7 +14,9 @@
         <h2>3択クイズ</h2>
         <div class="login">
             @auth
-            <a href="{{ route('quiz.show',['questionId' => $firstQuestionId]) }}" class="quiz">クイズに答える</a>
+                @if($firstQuestionId)
+                <a href="{{ route('quiz.show',['questionId' => $firstQuestionId]) }}" class="quiz">クイズに答える</a>
+                @endif
                 @can('admin')
                 <a href="{{ route('quiz.create') }}" class="quiz">管理人用</a>
                 @endcan
