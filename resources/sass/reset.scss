@@ -15,7 +15,7 @@ small, strong, sub, sup, var,
 b, i,
 dl, dt, dd, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+table, caption, tbody, tfoot,
 article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
@@ -111,4 +111,16 @@ ul{
 }
 body{
     font-family: 'Noto Sans JP', sans-serif;
+    background-image:url("/images/background.jpg");
+    background-color:rgba(255,255,255,0.7);
+    background-blend-mode:lighten;
+    animation: background-animation 15s infinite linear;
 }
+@keyframes background-animation {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 360px -360px;
+    }
+  }

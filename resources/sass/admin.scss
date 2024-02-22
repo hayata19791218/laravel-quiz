@@ -1,0 +1,59 @@
+.choice, .question, .admin{
+    line-height:1.5em;
+}
+.question-container{
+    width: 90%;
+    @media screen and (min-width:768px){
+        width: 700px;
+    }
+    @media screen and (min-width:1023px){
+        width: 900px;
+    }
+    .message{
+        border:1px solid blue;
+        background:none;
+        color:blue;
+    }
+    .deleteButton{
+        background: none;
+        border: none;
+        color: #485fc7;
+        font-size: 16px;
+        padding: 0;
+        display: inline;
+    }
+    .back{
+        font-size: 13px;
+        text-decoration:underline;
+        @media screen and (min-width:768px){
+            font-size: 16px;
+        }
+    }
+    .button{
+        text-decoration:underline;
+        vertical-align:baseline;
+        font-size: 13px;
+        @media screen and (min-width:768px){
+            font-size: 16px;
+        }
+        &:hover{
+            color:#000;
+        }
+    }
+    .link{
+        text-decoration:underline;
+    }
+    .image{
+        height: 200px;
+    }
+    table{
+        width: 100%;
+        font-size: 13px;
+        @media screen and (min-width:768px){
+            font-size: 16px;
+        }
+    }
+    img{
+        width: 200px;
+    }
+}

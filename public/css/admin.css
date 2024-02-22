@@ -1,0 +1,70 @@
+.choice, .question, .admin {
+  line-height: 1.5em;
+}
+
+.question-container {
+  width: 90%;
+}
+@media screen and (min-width: 768px) {
+  .question-container {
+    width: 700px;
+  }
+}
+@media screen and (min-width: 1023px) {
+  .question-container {
+    width: 900px;
+  }
+}
+.question-container .message {
+  border: 1px solid blue;
+  background: none;
+  color: blue;
+}
+.question-container .deleteButton {
+  background: none;
+  border: none;
+  color: #485fc7;
+  font-size: 16px;
+  padding: 0;
+  display: inline;
+}
+.question-container .back {
+  font-size: 13px;
+  text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  .question-container .back {
+    font-size: 16px;
+  }
+}
+.question-container .button {
+  text-decoration: underline;
+  vertical-align: baseline;
+  font-size: 13px;
+}
+@media screen and (min-width: 768px) {
+  .question-container .button {
+    font-size: 16px;
+  }
+}
+.question-container .button:hover {
+  color: #000;
+}
+.question-container .link {
+  text-decoration: underline;
+}
+.question-container .image {
+  height: 200px;
+}
+.question-container table {
+  width: 100%;
+  font-size: 13px;
+}
+@media screen and (min-width: 768px) {
+  .question-container table {
+    font-size: 16px;
+  }
+}
+.question-container img {
+  width: 200px;
+}

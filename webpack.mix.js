@@ -16,4 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
         require("tailwindcss"),
     ])
     .sass('resources/sass/reset.scss', 'public/css')
-    .sass('resources/sass/index.scss', 'public/css');
+    .sass('resources/sass/index.scss', 'public/css')
+    .sass('resources/sass/admin.scss', 'public/css')
+    .options({
+        processCssUrls: false
+    });

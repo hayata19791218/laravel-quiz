@@ -23,19 +23,46 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+//無効なURLはトップページにリダイレクト
+Route::fallback(function () {
+	return redirect('/');
+});
+
 Route::controller(QuizController::class)->group(function(){
     //トップページ
-    Route::get('/','index')->name('quiz.index');
+    Route::get('/', 'index')->name('quiz.index');
 
     //クイズのページ
-    Route::get('/quiz/{questionId}','show')->name('quiz.show');
+    Route::get('/quiz/{questionId}', 'show')->name('quiz.show');
 
     //クイズを作成
-    Route::get('/create','create')->name('quiz.create');
+    Route::get('/create', 'create')->name('quiz.create');
 
     //クイズの保存
-    Route::post('/quiz/store','store')->name('quiz.store');
+    Route::post('/quiz/store', 'store')->name('quiz.store');
 
     //解答
-    Route::get('/answer','answer')->name('quiz.answer');
+    Route::post('/answer', 'answer')->name('quiz.answer');
+});
+
+Route::controller(ProfileController::class)->group(function(){
+    //プロフィールの編集ページ
+    Route::get('/profile/{user}/edit', 'edit')->name('profile.edit');
+
+    //プロフィールの更新
+    Route::get('/profile/{user}', 'update')->name('profile.update');
+});
+
+Route::controller(AdminController::class)->group(function(){
+    //問題一覧
+    Route::get('/admin/index', 'index')->name('admin.index');
+
+    //問題の編集ページ
+    Route::get('/admin/{id}/edit', 'edit')->name('admin.edit');
+
+    //問題の更新
+    Route::put('/admin/{question}/update', 'update')->name('admin.update');
+
+    //問題の削除
+    Route::delete('/admin/delete/{question}', 'delete')->name('admin.delete');
 });

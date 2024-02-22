@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Score;
+use App\Models\User;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Session;
 
 class QuizController extends Controller
 {
@@ -12,13 +15,17 @@ class QuizController extends Controller
     {
         $firstQuestionId = Question::where('id', '>=' ,1)->first();
 
-        return view('quiz.index',compact('firstQuestionId'));
+        $score = Score::count();
+
+        $tableScores = Score::with('user')->orderBy('score', 'DESC')->take(5)->get();
+
+        return view('quiz.index',compact('firstQuestionId', 'score', 'tableScores'));
     }
 
-    public function show($questionId)
+    public function show($questionId, Request $request)
     {
         $question = Question::findOrFail($questionId);
-  
+
         return view('quiz.show',compact('question'));
     }
 
@@ -31,21 +38,11 @@ class QuizController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(Question $question, Request $request)
     {
-        $inputs = $request->validate([
-            'question' => 'required',
-            'choices' => 'required',
-            'correct_choice' => 'required'
-        ]);
+        $question->quizStore($request);
 
-        $question = new Question();
-        $question->question = $inputs['question'];
-        $question->choices = $inputs['choices'];
-        $question->correct_choice = $inputs['correct_choice'];
-        $question->save();
-
-        return back();
+        return back()->with('message', '問題を作成しました');
     }
 
     public function answer(Request $request)
@@ -54,15 +51,39 @@ class QuizController extends Controller
         $questionId = $request->input('question_id');
         $question = Question::findOrFail($questionId);
         $correctChoiceIndex = $question->correct_choice - 1;
+        $questions = Question::count();
+        Session::increment('flagNumber');
 
         if ($userAnswer == $correctChoiceIndex) {
             $isCorrect = true;
+
+            Session::increment('key');
         } else {
             $isCorrect = false;
         }
 
         $nextQuestionId = Question::where('id', '>', $questionId)->first();
 
-        return view('quiz.answer', compact('isCorrect', 'question', 'userAnswer', 'nextQuestionId'));
+        $flag = Session::get('flagNumber', 0);
+
+        $correctNumber = Session::get('key',0);
+
+        $userId = auth()->id();
+
+        if($flag == $questions){
+            $scoreRecord = new Score([
+                'user_id' => $userId,
+                'score' => $correctNumber
+            ]);
+
+            $scoreRecord->save();
+
+            Session::forget('key');
+            Session::forget('flagNumber');
+        }
+
+        $request->session()->regenerateToken();
+
+        return view('quiz.answer', compact('isCorrect', 'question', 'userAnswer', 'nextQuestionId' ,'correctNumber'));
     }
 }

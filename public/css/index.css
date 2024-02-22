@@ -1,1 +1,88 @@
-.container{margin-left:auto;margin-right:auto;padding:20px 0;width:90%}.container .login{margin-top:40px}.container .login .notice{text-align:center}.container .login .quiz{display:block;margin-top:20px;text-align:center}.container .login div{-moz-column-gap:20px;column-gap:20px;display:flex;margin-left:auto;margin-right:auto;margin-top:20px;width:-moz-fit-content;width:fit-content}.container .question-wrap{margin-top:30px}.container .question-wrap .answer{background:none;border:1px solid #000;display:block;margin-left:auto;margin-right:auto;padding-left:15px;padding-right:15px}.container .question-wrap div{margin-bottom:20px}.container .question-wrap input{cursor:pointer;font-size:13px}@media screen and (min-width:768px){.container .question-wrap input{font-size:16px}}.container .end,.container .question,.container .select{margin-top:30px}.container .link{display:block;margin-top:30px}.container form{margin-top:40px}.container form .store{background:none;border:1px solid #000;display:block;margin-left:auto;margin-right:auto;margin-top:20px;width:150px}.container form .label{font-weight:700}@media screen and (min-width:768px){.container form .label{font-size:20px}}.container form .input{width:77%}.container form div{margin-bottom:10px}.container h2{font-size:20px;line-height:1.5em;margin-left:auto;margin-right:auto;width:-moz-fit-content;width:fit-content}@media screen and (min-width:768px){.container h2{font-size:25px}}.container p{font-size:13px;margin-bottom:10px}@media screen and (min-width:768px){.container p{font-size:16px}}
+.container .message {
+  border: 1px solid blue;
+  background: none;
+  color: blue;
+}
+.container .explain {
+  margin-top: 50px;
+}
+.container .first-view {
+  width: 300px;
+}
+@media screen and (min-width: 768px) {
+  .container .first-view {
+    width: 400px;
+  }
+}
+.container .login .column {
+  width: 140px;
+}
+.container .login .column .logout {
+  border: none;
+  background: none;
+  color: #485fc7;
+  font-size: 16px;
+}
+.container .login .column .logout:hover {
+  cursor: pointer;
+  color: #000;
+}
+.container .login .wrap {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.container .login .wrap img {
+  height: 100px;
+}
+.container .login table, .container .login th, .container .login td {
+  border: 1px solid #000;
+}
+.container .menu-img {
+  width: 200px;
+}
+.container .sorry-img {
+  height: 200px;
+}
+.container .top-back {
+  text-decoration: underline;
+}
+.container .question-wrap input {
+  font-size: 13px;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .container .question-wrap input {
+    font-size: 16px;
+  }
+}
+.container p, .container a, .container table {
+  font-size: 13px;
+}
+@media screen and (min-width: 768px) {
+  .container p, .container a, .container table {
+    font-size: 16px;
+  }
+}
+
+.question-container {
+  width: 90%;
+}
+@media screen and (min-width: 768px) {
+  .question-container {
+    width: 700px;
+  }
+}
+.question-container .question {
+  width: 200px;
+}
+.question-container .result {
+  margin-top: 20%;
+}
+.question-container .message {
+  border: 1px solid blue;
+  background: none;
+  color: blue;
+}
+.question-container .back {
+  text-decoration: underline;
+}
